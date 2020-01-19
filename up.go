@@ -17,6 +17,15 @@ const (
 )
 
 
+type Duration struct {
+    Weeks   uint8
+    Days    uint8
+    Hours   uint8
+    Minutes uint8
+    Seconds float32
+}
+
+
 func main() {
     // TODO: deal with errors
     s, _ := ioutil.ReadFile("/proc/uptime")
