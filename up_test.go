@@ -15,6 +15,7 @@ var (
 
 
 func TestBytesToFloat(t *testing.T) {
+    // TODO: rework these into table based tests
     t.Run("Test on int slice", func(t *testing.T) {
         i, err := BytesToFloat(int_slice)
         if err != nil {
