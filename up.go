@@ -95,13 +95,13 @@ func ExtractUnit(t float64, u float64) (uint, float64) {
 
 
 // Split a float of seconds up into human units.
-func NewDuration(f float64) Duration {
+func NewDuration(f float64) *Duration {
     weeks,   f := ExtractUnit(f, WEEK)
     days,    f := ExtractUnit(f, DAY)
     hours,   f := ExtractUnit(f, HOUR)
     minutes, f := ExtractUnit(f, MINUTE)
     seconds := math.Round(f * 100) / 100
-    return Duration {
+    return &Duration {
         uint8(weeks),
         uint8(days),
         uint8(hours),
