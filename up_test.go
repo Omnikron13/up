@@ -35,7 +35,7 @@ func TestBytesToFloat(t *testing.T) {
         }
     })
 
-    t.Run("Test on non numeric slice", func(t *testing.T) {
+    t.Run("Test on non numeric (int) slice", func(t *testing.T) {
         _, err := BytesToFloat([]byte("123abc"))
         if err == nil {
             t.Error("Didn't throw error")
