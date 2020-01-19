@@ -41,6 +41,20 @@ func TestBytesToFloat(t *testing.T) {
             t.Error("Didn't throw error")
         }
     })
+
+    t.Run("Test on non numeric (float) slice 1", func(t *testing.T) {
+        _, err := BytesToFloat([]byte("abc.123"))
+        if err == nil {
+            t.Error("Didn't throw error")
+        }
+    })
+
+    t.Run("Test on non numeric (float) slice 2", func(t *testing.T) {
+        _, err := BytesToFloat([]byte("123.abc"))
+        if err == nil {
+            t.Error("Didn't throw error")
+        }
+    })
 }
 
 
