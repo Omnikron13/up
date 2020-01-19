@@ -33,14 +33,10 @@ func main() {
     split := bytes.Split(s, []byte{' '})
     f, _ := BytesToFloat(split[0])
 
-    // TODO: offload into functions
-    weeks,   f := ExtractUnit(f, WEEK)
-    days,    f := ExtractUnit(f, DAY)
-    hours,   f := ExtractUnit(f, HOUR)
-    minutes, f := ExtractUnit(f, MINUTE)
+    d := NewDuration(f)
 
     // TODO: offload into more flexible output function(s)
-    fmt.Printf("%dd⋅%dh⋅%dm", days + weeks * 7, hours, minutes)
+    fmt.Printf("%dd⋅%dh⋅%dm", d.Days + d.Weeks * 7, d.Hours, d.Minutes)
 }
 
 
