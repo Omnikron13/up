@@ -1,6 +1,7 @@
 package main
 
 import (
+    "fmt"
     "strconv"
     "testing"
 )
@@ -76,6 +77,43 @@ func TestBytesToInt(t *testing.T) {
             t.Error("Didn't throw error")
         }
     })
+}
+
+
+func TestExtractUnit(t *testing.T) {
+    tests := []struct {
+        input_time float64
+        input_unit float64
+        output_units uint
+        output_time  float64
+    } {
+        {
+            input_time: 1000.1,
+            input_unit: 500,
+            output_units: 2,
+            output_time:  0.10000000000002274, // Floats, amiright?
+        },
+        {
+            input_time: 1000.1,
+            input_unit: 5000,
+            output_units: 0,
+            output_time:  1000.1,
+        },
+    }
+
+    for _, tc := range tests {
+        t.Run(
+            fmt.Sprintf("Time %f Unit %f", tc.input_time, tc.input_unit),
+            func(t *testing.T) {
+                u, f := ExtractUnit(tc.input_time, tc.input_unit)
+                if u != tc.output_units {
+                    t.Errorf("Incorrect unit output; got %d expected %d", u, tc.output_units)
+                }
+                if f != tc.output_time {
+                    t.Errorf("Incorrect time output; got %f expected %f", f, tc.output_time)
+                }
+        })
+    }
 }
 
 
