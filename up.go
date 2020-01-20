@@ -91,6 +91,18 @@ func ExtractUnit(t float64, u float64) (uint, float64) {
 }
 
 
+// Get the raw uptime seconds count.
+// If OS other than linux are to be supported, it would be here.
+func GetRawUptime() (float64, error) {
+    s, err := ioutil.ReadFile("/proc/uptime")
+    if err != nil {
+        return 0, err
+    }
+    f, err := BytesToFloat(s[:bytes.IndexByte(s, ' ')])
+    return f, err
+}
+
+
 // Split a float of seconds up into human units.
 func NewDuration(f float64) *Duration {
     weeks,   f := ExtractUnit(f, WEEK)
