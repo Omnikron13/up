@@ -28,11 +28,7 @@ type Duration struct {
 
 func main() {
     // TODO: deal with errors
-    s, _ := ioutil.ReadFile("/proc/uptime")
-
-    split := bytes.Split(s, []byte{' '})
-    f, _ := BytesToFloat(split[0])
-
+    f, _ := GetRawUptime()
     d := NewDuration(f)
 
     // TODO: offload into more flexible output function(s)
