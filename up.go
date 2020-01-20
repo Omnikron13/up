@@ -83,7 +83,7 @@ func BytesToInt(s []byte) (int, error) {
 }
 
 
-// Get number of units of u seconds from f.
+// Get number of units of u seconds from t.
 func ExtractUnit(t float64, u float64) (uint, float64) {
     i := math.Floor(t / u)
     return uint(i), t - i * u
