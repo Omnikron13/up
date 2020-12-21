@@ -1,6 +1,7 @@
 package main
 
 import (
+    "math"
     "bytes"
     "errors"
     "io/ioutil"
