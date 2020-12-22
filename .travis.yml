@@ -9,10 +9,15 @@ go:
 os:
 - linux
 - windows
+- osx
 
 before_install:
 - go get github.com/mattn/goveralls
 
 script:
 - $GOPATH/bin/goveralls -service=travis-ci
+
+matrix:
+    allow_failures:
+        - os: osx
 
