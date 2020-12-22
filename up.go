@@ -26,10 +26,16 @@ type Duration struct {
 func main() {
     // TODO: deal with errors
     f, _ := GetRawUptime()
-    d := NewDuration(float64(f))
+
+    // This is a bit unwieldy as well tbh
+    w, f := f.Weeks()
+    d, f := f.Days()
+    h, f := f.Hours()
+    m, f := f.Minutes()
+    s, f := f.Seconds()
 
     // TODO: offload into more flexible output function(s)
-    fmt.Printf("%dd⋅%dh⋅%dm", d.Days + d.Weeks * 7, d.Hours, d.Minutes)
+    fmt.Printf("%dw⋅%dd⋅%dh⋅%dm⋅%ds", w, d, h, m, s)
 }
 
 
