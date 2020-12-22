@@ -23,9 +23,9 @@ var (
 // Windows favours milliseconds, so it needs multiplying by 1,000 to
 // standardise against nanoseconds (the smallest units any system
 // will be likely use for anything).
-func GetRawUptime() (uint64, error) {
+func GetRawUptime() (Period, error) {
 	tick, err := GetTickCount64()
-	return tick * NANO, err
+	return Period(tick * Millisecond), err
 }
 
 
