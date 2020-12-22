@@ -20,6 +20,31 @@ func GetRawUptime() (float64, error) {
 }
 
 
+// Convert directly from a slice of ASCII digits (and optional
+// decimal point) to a Period of nanoseconds.
+func BytesToPeriod(s []byte) (Period, error) {
+    // Find the decimal point
+    n := bytes.IndexByte(s, '.')
+    // ...or just process as an int if there isn't one
+    if n == -1 {
+        i, err := BytesToInt(s)
+        return Period(i * Second), err
+    }
+    // Read the integer section
+    i, err := BytesToInt(s[:n])
+    if err != nil {
+        return 0, err
+    }
+    p := Period(i * Second)
+    // ...and the decimals
+    i, err = BytesToInt(s[n+1:])
+    if err != nil {
+        return 0, err
+    }
+    return p + i * Decisecond, err
+}
+
+
 // Convert a byte slice of ASCII numerals into a float.
 func BytesToFloat(s []byte) (float64, error) {
     // Find the decimal point
