@@ -24,6 +24,9 @@ const (
 type Period uint64
 
 
+// These methods slice out as many whole units as possible,
+// returning both the thing they've sliced as an int of some kind
+// and the remainder as a fresh Period for more slicing & dicing.
 func (p Period) Seconds() (uint64, Period) {
 	return uint64(p / Second), p % Second
 }
@@ -34,9 +37,6 @@ func (p Period) Minutes() (uint64, Period) {
 }
 
 
-// Slice out as many whole hours as possible,
-// returning both the hours and the remainder
-// as a fresh Period for more slicing.
 func (p Period) Hours() (uint32, Period) {
 	return uint32(p / Hour), p % Hour
 }
