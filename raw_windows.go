@@ -38,4 +38,3 @@ func GetTickCount64() (ms uint64, e error) {
 	return ms, e
 }
 
-
