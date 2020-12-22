@@ -36,3 +36,18 @@ func (p Period) Days() (uint32, Period) {
 	return uint32(p / Day), p % Day
 }
 
+
+func (p Period) Weeks() (uint32, Period) {
+	return uint32(p / Week), p % Week
+}
+
+
+func (p Period) Years() (uint32, Period) {
+	return uint32(p / Year), p % Year
+}
+
+
+func (p Period) Decades() (uint16, Period) {
+	return uint16(p / Decade), p % Decade
+}
+
