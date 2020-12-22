@@ -24,6 +24,16 @@ const (
 type Period uint64
 
 
+func (p Period) Seconds() (uint64, Period) {
+	return uint64(p / Second), p % Second
+}
+
+
+func (p Period) Minutes() (uint64, Period) {
+	return uint64(p / Minute), p % Minute
+}
+
+
 // Slice out as many whole hours as possible,
 // returning both the hours and the remainder
 // as a fresh Period for more slicing.
