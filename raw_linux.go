@@ -10,13 +10,12 @@ import (
 
 // Get the raw uptime seconds count.
 // If OS other than linux are to be supported, it would be here.
-func GetRawUptime() (float64, error) {
+func GetRawUptime() (Period, error) {
     s, err := ioutil.ReadFile("/proc/uptime")
     if err != nil {
         return 0, err
     }
-    f, err := BytesToFloat(s[:bytes.IndexByte(s, ' ')])
-    return f, err
+    return BytesToPeriod(s[:bytes.IndexByte(s, ' ')])
 }
 
 
