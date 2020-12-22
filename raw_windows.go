@@ -9,7 +9,6 @@ import (
 const (
 	DLL_NAME  = "kernel32.dll"
 	PROC_NAME = "GetTickCount64"
-	NANO = 1000
 )
 
 
