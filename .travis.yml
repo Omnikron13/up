@@ -22,3 +22,6 @@ matrix:
     allow_failures:
         - os: osx
 
+        - os: windows
+          go: tip
+
