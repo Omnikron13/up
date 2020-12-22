@@ -16,7 +16,7 @@ const (
 	Year        =  365 * Day
 	Decade      =   10 * Year
 	Century     =   10 * Decade
-	Millenia    =   10 * Century
+	Millennia   =   10 * Century  // Only about half a millennia actually fits...
 )
 
 
