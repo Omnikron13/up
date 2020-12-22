@@ -23,3 +23,11 @@ const (
 // Stores a length of time in nanoseconds
 type Period uint64
 
+
+// Slice out as many whole hours as possible,
+// returning both the hours and the remainder
+// as a fresh Period for more slicing.
+func (p Period) Hours() (uint32, Period) {
+	return uint32(p / Hour), p % Hour
+}
+
