@@ -31,3 +31,8 @@ func (p Period) Hours() (uint32, Period) {
 	return uint32(p / Hour), p % Hour
 }
 
+
+func (p Period) Days() (uint32, Period) {
+	return uint32(p / Day), p % Day
+}
+
