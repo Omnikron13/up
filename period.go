@@ -31,31 +31,25 @@ func (p Period) Seconds() (uint64, Period) {
 	return uint64(p / Second), p % Second
 }
 
-
 func (p Period) Minutes() (uint64, Period) {
 	return uint64(p / Minute), p % Minute
 }
-
 
 func (p Period) Hours() (uint32, Period) {
 	return uint32(p / Hour), p % Hour
 }
 
-
 func (p Period) Days() (uint32, Period) {
 	return uint32(p / Day), p % Day
 }
-
 
 func (p Period) Weeks() (uint32, Period) {
 	return uint32(p / Week), p % Week
 }
 
-
 func (p Period) Years() (uint32, Period) {
 	return uint32(p / Year), p % Year
 }
-
 
 func (p Period) Decades() (uint16, Period) {
 	return uint16(p / Decade), p % Decade
