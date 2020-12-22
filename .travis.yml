@@ -16,6 +16,7 @@ before_install:
 
 script:
 - $GOPATH/bin/goveralls -service=travis-ci
+- go test -v -bench=.
 
 matrix:
     allow_failures:
